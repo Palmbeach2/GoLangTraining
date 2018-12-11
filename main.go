@@ -14,4 +14,6 @@ func main() {
 	fmt.Println(c)
 	fmt.Println(name)
 	fmt.Println("Ready to go!")
+	fmt.Println(c)
+
 }
