@@ -59,7 +59,38 @@ func swapPointers(p1 **int, p2 **int) {
 	*p2 = tmp
 }
 
+//Für 9 (Arrays and slice)
+func tut9() {
+	fmt.Println("Go Tutorial 9")
+	var buffer [256]int
+	for i := 0; i < len(buffer); i++ {
+		buffer[i] = i
+	}
+
+	slice := buffer[27:72]
+	fmt.Println(cap(slice))
+	newSlice := make([]int, len(slice), 2*cap(slice))
+	copy(newSlice, slice)
+	slice = newSlice
+	fmt.Println(cap(slice))
+}
+
+//Für 10 (Variable ANzahl an Argumenten)
+func printWithNewLines(lines ...string) {
+	fmt.Println("Go Tutorial 10")
+	for _, line := range lines {
+		fmt.Println(line)
+	}
+}
+
+func tut10() {
+	printWithNewLines("a", "b", "c", "d")
+	slice := []string{"string1", "string2", "string3", "string4"}
+	fmt.Println(len(slice))
+	fmt.Println(cap(slice))
+	printWithNewLines(slice...)
+}
+
 func main() {
-	fmt.Println("Go Tutorial 8")
-	pointer2()
+	tut10()
 }
