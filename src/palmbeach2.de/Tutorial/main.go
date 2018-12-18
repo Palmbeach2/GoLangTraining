@@ -91,6 +91,25 @@ func tut10() {
 	printWithNewLines(slice...)
 }
 
+//Für 11 (Strukturen)Vector3
+func tut11() {
+	fmt.Println("Go Tutorial 11")
+	position := Vector3{1, 2, 3}
+	position2 := Vector3{y: 42}
+	position.x = 27
+	pointer := &position
+	pointer.z = 1
+	fmt.Println(*pointer)
+	fmt.Println(position2)
+}
+
+//Vector3 a 3d Vector
+type Vector3 struct {
+	x float64
+	y float64
+	z float64
+}
+
 func main() {
-	tut10()
+	tut11()
 }
