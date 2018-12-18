@@ -5,7 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch Package",
+            "name": "Launch ethr",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceFolder}/../Download/ethr"
+        },
+        {
+            "name": "Launch Tutorial",
             "type": "go",
             "request": "launch",
             "mode": "debug",
