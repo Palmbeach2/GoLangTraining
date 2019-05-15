@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"net/http"
 )
 
@@ -103,6 +104,42 @@ func tut11() {
 	fmt.Println(position2)
 }
 
+//Für 12 (Hashmap)
+func tut12() {
+	fmt.Println("Go Tutorial 12")
+	hashmap := make(map[string]int)
+	hashmap["Walter"] = 5
+	hashmap["Gertrude"] = 27
+	highscore := hashmap["Walter"]
+	highscore2, exists := hashmap["Gertrude"]
+	if !exists {
+		fmt.Println("Highscore of Gertrude: doesn't exists")
+	} else {
+		fmt.Println("Highscore of Gertrude:", highscore2)
+	}
+	fmt.Println("Highscore of Gertrude:", hashmap["Gertrude"])
+	fmt.Println("Highscore of Walter:", highscore)
+
+	for key, value := range hashmap {
+		fmt.Println("Key:", key, "Value:", value)
+	}
+
+	delete(hashmap, "Gertrude")
+	highscore3, exists := hashmap["Gertrude"]
+	if !exists {
+		fmt.Println("Highscore of Gertrude: doesn't exists")
+	} else {
+		fmt.Println("Highscore of Gertrude:", highscore3)
+	}
+
+	cheaters := map[string]bool{
+		"Pilzschaf":  false,
+		"cheaterboy": true,
+		"Palmbeach2": false,
+	}
+	fmt.Println("Cheaters:", cheaters)
+}
+
 //Vector3 a 3d Vector
 type Vector3 struct {
 	x float64
@@ -110,6 +147,27 @@ type Vector3 struct {
 	z float64
 }
 
+//Für 13 (Methoden)
+func tut13() {
+	fmt.Println("Go Tutorial 13")
+	v := Vector3{1, 2, 3}
+	v.SetNull()
+	fmt.Println(v.Length())
+}
+
+// Length Returns length of Vector
+func (v Vector3) Length() float64 {
+	return math.Sqrt(v.x*v.x + v.y*v.y + v.z*v.z)
+}
+
+// SetNull Sets all componets of Vector to 0
+func (v *Vector3) SetNull() {
+	v.x = 0
+	v.y = 0
+	v.z = 0
+}
+
 func main() {
-	tut11()
+	tut13()
+
 }
